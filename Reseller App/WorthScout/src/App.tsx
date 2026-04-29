@@ -734,208 +734,30 @@ function OpportunityDrawer({
   );
 }
 
-function HeroSnapshotPlaceholder() {
-  const statCards = [
-    {
-      label: "Net profit",
-      value: "+£28.15",
-      tone: "border-emerald-400/20 bg-emerald-400/10 text-emerald-200",
-    },
-    {
-      label: "Demand",
-      value: "High",
-      tone: "border-fuchsia-400/20 bg-fuchsia-400/10 text-fuchsia-200",
-    },
-    {
-      label: "Confidence",
-      value: "94%",
-      tone: "border-sky-400/20 bg-sky-400/10 text-sky-200",
-    },
-  ];
-
-  const recentCards = [
-    { image: starterScans[2].image, title: "COS overshirt", net: "+£11" },
-    { image: opportunityItems[3].image, title: "Synchilla fleece", net: "+£23" },
-    { image: opportunityItems[1].image, title: "Stüssy hoodie", net: "+£17" },
-    { image: opportunityItems[7].image, title: "Levi's sherpa", net: "+£10" },
-    { image: opportunityItems[8].image, title: "Nuptse gilet", net: "+£29" },
-    { image: opportunityItems[0].image, title: "Leather jacket", net: "+£36" },
-  ];
-
-  return (
-    <div className="relative mx-auto w-full max-w-[650px] xl:max-w-[620px]">
-      <div className="relative rounded-[2.2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-3 sm:p-4 shadow-[0_30px_100px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
-        <div className="mb-4 grid gap-3 sm:grid-cols-3">
-          {statCards.map((item) => (
-            <div key={item.label} className={cn("rounded-[1.2rem] border p-4", item.tone)}>
-              <div className="text-[10px] uppercase tracking-[0.18em] text-white/55">
-                {item.label}
-              </div>
-              <div className="mt-2 text-2xl font-semibold text-white">{item.value}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="relative rounded-[1.8rem] border border-white/10 bg-[#091018] p-3 sm:p-4">
-          <div className="mb-4 flex items-center justify-between">
-            <div>
-              <div className="text-xs text-white/40">Product preview</div>
-              <div className="mt-1 text-base font-semibold text-white">WorthScout dashboard</div>
-            </div>
-          </div>
-
-          <div className="grid gap-3 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#070b12] p-3">
-              <div className="mb-3 flex items-center justify-between">
-                <div className="text-xs text-white/40">Recently surfaced</div>
-                <div className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] text-white/45">
-                  Shared board
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-2">
-                {recentCards.map((card) => (
-                  <div
-                    key={card.title}
-                    className="overflow-hidden rounded-[1rem] border border-white/10 bg-white/[0.04]"
-                  >
-                    <img src={card.image} alt={card.title} className="h-16 sm:h-20 w-full object-cover" />
-                    <div className="p-2">
-                      <div className="truncate text-[10px] font-medium text-white/75">
-                        {card.title}
-                      </div>
-                      <div className="mt-1 text-[10px] text-emerald-300">{card.net}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-3 rounded-[1rem] border border-white/10 bg-white/[0.04] p-3">
-                <div className="mb-2 flex items-center justify-between">
-                  <div className="text-xs text-white/45">Shared opportunity board</div>
-                  <div className="rounded-full bg-fuchsia-400/10 px-2 py-0.5 text-[10px] text-fuchsia-200">
-                    15 cached
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-2">
-                  <div className="rounded-[0.9rem] bg-black/20 p-2.5">
-                    <div className="text-[9px] uppercase tracking-[0.15em] text-white/30">Ask</div>
-                    <div className="mt-1 text-sm font-semibold text-white">£48</div>
-                  </div>
-                  <div className="rounded-[0.9rem] bg-black/20 p-2.5">
-                    <div className="text-[9px] uppercase tracking-[0.15em] text-white/30">Fair</div>
-                    <div className="mt-1 text-sm font-semibold text-white">£95</div>
-                  </div>
-                  <div className="rounded-[0.9rem] bg-emerald-400/10 p-2.5">
-                    <div className="text-[9px] uppercase tracking-[0.15em] text-white/30">
-                      Est. net
-                    </div>
-                    <div className="mt-1 text-sm font-semibold text-emerald-200">+£36</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative flex items-end justify-center">
-              <motion.div
-                className="absolute -top-16 right-2 hidden w-[150px] rounded-[1.15rem] border border-rose-400/20 bg-black/45 p-3 shadow-[0_0_45px_rgba(244,63,94,0.10)] backdrop-blur-xl lg:block"
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="text-[9px] uppercase tracking-[0.16em] text-rose-100/55">
-                  Weak buy warning
-                </div>
-                <div className="mt-2 grid grid-cols-3 gap-2">
-                  <div>
-                    <div className="text-[9px] text-white/35">Net</div>
-                    <div className="mt-1 text-base font-semibold text-rose-300">£0</div>
-                  </div>
-                  <div>
-                    <div className="text-[9px] text-white/35">Fair</div>
-                    <div className="mt-1 text-base font-semibold text-white">£53</div>
-                  </div>
-                  <div>
-                    <div className="text-[9px] text-white/35">Conf.</div>
-                    <div className="mt-1 text-base font-semibold text-white">90%</div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <div className="relative z-10 w-full max-w-[190px] sm:max-w-[205px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#06090f] p-3 shadow-[0_30px_70px_rgba(0,0,0,0.35)]">
-                <div className="mb-3 flex items-center justify-between">
-                  <div>
-                    <div className="text-[10px] text-white/35">WorthScout</div>
-                    <div className="text-xs font-medium text-white">Mobile scan</div>
-                  </div>
-                  <div className="h-2.5 w-12 rounded-full bg-white/10" />
-                </div>
-
-                <div className="overflow-hidden rounded-[1.4rem] border border-white/10">
-                  <img
-                    src={opportunityItems[3].image}
-                    alt="Mobile preview"
-                    className="h-44 sm:h-52 w-full object-cover"
-                  />
-                </div>
-
-                <div className="mt-3 rounded-[1.1rem] border border-white/10 bg-white/[0.04] p-3">
-                  <div className="text-[10px] uppercase tracking-[0.15em] text-white/30">
-                    Synchilla fleece
-                  </div>
-                  <div className="mt-2 grid grid-cols-3 gap-2">
-                    <div className="rounded-[0.8rem] bg-black/20 p-2">
-                      <div className="text-[9px] text-white/30">Buy</div>
-                      <div className="mt-1 text-sm font-semibold text-white">£21</div>
-                    </div>
-                    <div className="rounded-[0.8rem] bg-black/20 p-2">
-                      <div className="text-[9px] text-white/30">Fair</div>
-                      <div className="mt-1 text-sm font-semibold text-white">£58</div>
-                    </div>
-                    <div className="rounded-[0.8rem] bg-emerald-400/10 p-2">
-                      <div className="text-[9px] text-white/30">Net</div>
-                      <div className="mt-1 text-sm font-semibold text-emerald-200">+£21</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="pointer-events-none absolute inset-y-10 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-white/10 to-transparent xl:block" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // ─── Public Homepage ──────────────────────────────────────────────────────────
 function PublicHome({
   onEnterApp,
-  onSignIn = onEnterApp,
+  onOpenAuth,
 }: {
   onEnterApp: () => void;
-  onSignIn?: () => void;
+  onOpenAuth: (mode: AuthMode) => void;
 }) {
   const [tickerIndex, setTickerIndex] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const tickerItems = [
-    "Patagonia fleece → est. net updated live",
-    "Barcode lookup → store decision in seconds",
-    "Shared opportunity board → refreshed hourly",
-    "Demand signals → dead stock flagged earlier",
-    "Desktop sourcing → screenshot to margin math",
-    "Margin-first buying → less guesswork, fewer misses",
+    "Nike fleece → est. net +£18",
+    "AllSaints jacket → strong demand",
+    "Barcode triage under 2 seconds",
+    "COS knit → premium wool signal",
+    "Thrift find → profit estimate updated live",
+    "Shared board refreshed hourly",
   ];
 
   useEffect(() => {
-    const interval = setInterval(
-      () => setTickerIndex((prev) => (prev + 1) % tickerItems.length),
-      2400
-    );
+    const interval = setInterval(() => setTickerIndex((prev) => (prev + 1) % tickerItems.length), 2400);
     return () => clearInterval(interval);
-  }, [tickerItems.length]);
+  }, []);
 
   const scrollTo = (id: string) => {
     setMobileMenuOpen(false);
@@ -944,142 +766,74 @@ function PublicHome({
     }, 100);
   };
 
-  const featureCards = [
-    {
-      icon: ScanLine,
-      title: "Scan anything",
-      text: "Barcode, garment, care label, or listing screenshot. Built for real sourcing behaviour, not idealised inputs.",
-      accent: "text-emerald-300",
-    },
-    {
-      icon: Barcode,
-      title: "Barcode-first speed",
-      text: "Use barcode mode for fast in-store triage when time matters and hesitation costs money.",
-      accent: "text-sky-300",
-    },
-    {
-      icon: SlidersHorizontal,
-      title: "Profit math that fits your costs",
-      text: "Editable fees make the margin estimate match how you actually buy, ship, and resell.",
-      accent: "text-fuchsia-300",
-    },
-    {
-      icon: TrendingUp,
-      title: "Demand-aware decisions",
-      text: "Spot what is likely to move, avoid dead stock, and stop mistaking high asking prices for real opportunity.",
-      accent: "text-amber-300",
-    },
-    {
-      icon: Search,
-      title: "Shared opportunity board",
-      text: "See pre-vetted opportunities faster with a board designed to surface likely wins before they disappear.",
-      accent: "text-violet-300",
-    },
-    {
-      icon: ImageIcon,
-      title: "Desktop sourcing workflow",
-      text: "Drag screenshots, compare listings, and run quick margin checks without leaving your desk.",
-      accent: "text-rose-300",
-    },
-  ];
+  const openAuth = (mode: AuthMode) => {
+    onOpenAuth(mode);
+    setMobileMenuOpen(false);
+  };
 
-  const useCases = [
-    {
-      title: "TK Maxx runs",
-      text: "Scan fast, price fast, skip weak stock before you burn time in the aisle.",
-    },
-    {
-      title: "Thrift stores",
-      text: "Use image and material signals when labels are inconsistent and barcodes are useless.",
-    },
-    {
-      title: "Outlet hunts",
-      text: "Compare expected resale margin against real buying cost before you commit.",
-    },
-    {
-      title: "Desktop sourcing",
-      text: "Work from screenshots and shared board candidates when you're not in-store.",
-    },
-  ];
-
-  const navLinkClass =
-    "cursor-pointer text-sm text-white/60 transition-colors hover:text-white";
+  const navLinkClass = "text-sm text-white/60 transition-colors hover:text-white cursor-pointer";
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#05030a] font-sans text-white antialiased">
       <FloatingOrbs />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:44px_44px] opacity-[0.05]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:42px_42px] opacity-[0.06]" />
+
 
       <div className="relative mx-auto max-w-[1500px] px-4 pb-24 pt-4 md:px-6 lg:px-8">
+
+        {/* ── Nav ── */}
         <nav className="mb-6 flex items-center justify-between rounded-[1.6rem] border border-white/10 bg-black/40 px-4 py-3 backdrop-blur-2xl md:px-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-fuchsia-100">
-              <Tag className="h-5 w-5" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-fuchsia-100">
+              <Tag className="h-4 w-4" />
             </div>
             <div>
-              <div className="font-semibold tracking-tight text-white">WorthScout</div>
-              <div className="text-xs text-white/45">AI resale scanner</div>
+              <div className="text-sm font-semibold tracking-tight text-white">WorthScout</div>
+              <div className="text-[11px] text-white/40">AI resale scanner</div>
             </div>
           </div>
 
+          {/* Desktop nav links */}
           <div className="hidden items-center gap-7 md:flex">
-            <span onClick={() => scrollTo("features")} className={navLinkClass}>
-              Features
-            </span>
-            <span onClick={() => scrollTo("how-it-works")} className={navLinkClass}>
-              How it works
-            </span>
-            <span onClick={() => scrollTo("use-cases")} className={navLinkClass}>
-              Use cases
-            </span>
-            <span onClick={() => scrollTo("pricing")} className={navLinkClass}>
-              Pricing
-            </span>
-            <span onClick={() => scrollTo("faq")} className={navLinkClass}>
-              FAQ
-            </span>
+            <span onClick={() => scrollTo("features")} className={navLinkClass}>Features</span>
+            <span onClick={() => scrollTo("how-it-works")} className={navLinkClass}>How it works</span>
+            <span onClick={() => scrollTo("pricing")} className={navLinkClass}>Pricing</span>
+            <span onClick={() => scrollTo("faq")} className={navLinkClass}>FAQ</span>
           </div>
 
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
-              onClick={onSignIn}
-              className="hidden rounded-[1rem] border-white/10 bg-white/5 text-white hover:bg-white/10 sm:flex"
+              className={cn(btnSecondary, "hidden sm:flex")}
+              onClick={() => openAuth("signin")}
             >
               Sign in
             </Button>
-            <Button
-              onClick={onEnterApp}
-              className="rounded-[1rem] bg-white text-slate-950 hover:bg-white/90"
-            >
+            <Button onClick={onEnterApp} className={cn(btnPrimary)}>
               Open app
             </Button>
+            {/* Mobile menu */}
             <button
               onClick={() => setMobileMenuOpen((v) => !v)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white md:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white md:hidden"
             >
               {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
           </div>
         </nav>
 
+        {/* Mobile menu dropdown */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, y: -8, scaleY: 0.96 }}
               animate={{ opacity: 1, y: 0, scaleY: 1 }}
               exit={{ opacity: 0, y: -8, scaleY: 0.96 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className={cn(shellPanel, "mb-4 overflow-hidden p-3 md:hidden")}
               style={{ transformOrigin: "top" }}
             >
-              {[
-                ["features", "Features"],
-                ["how-it-works", "How it works"],
-                ["use-cases", "Use cases"],
-                ["pricing", "Pricing"],
-                ["faq", "FAQ"],
-              ].map(([id, label]) => (
+              {[["features", "Features"], ["how-it-works", "How it works"], ["pricing", "Pricing"], ["faq", "FAQ"]].map(([id, label]) => (
                 <button
                   key={id}
                   onClick={() => scrollTo(id)}
@@ -1089,131 +843,172 @@ function PublicHome({
                   {label}
                 </button>
               ))}
-
               <div className="mt-2 border-t border-white/10 pt-2">
-                <button
-                  onClick={onSignIn}
-                  className="flex w-full items-center gap-3 rounded-[1rem] px-4 py-3 text-sm text-white/70 transition hover:bg-white/5 hover:text-white"
-                >
-                  <LogIn className="h-4 w-4" />
-                  Sign in
+                <button onClick={() => openAuth("signin")} className="flex w-full items-center gap-3 rounded-[1rem] px-4 py-3 text-sm text-white/70 transition hover:bg-white/5 hover:text-white">
+                  <LogIn className="h-4 w-4" />Sign in
+                </button>
+                <button onClick={() => openAuth("register")} className="flex w-full items-center gap-3 rounded-[1rem] px-4 py-3 text-sm text-white/70 transition hover:bg-white/5 hover:text-white">
+                  <UserPlus className="h-4 w-4" />Create account
                 </button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        <section className="relative overflow-hidden rounded-[2.7rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.12),transparent_24%),radial-gradient(circle_at_top_right,rgba(244,114,182,0.10),transparent_28%),linear-gradient(135deg,#0c1118_0%,#05030a_58%,#12081a_100%)] px-6 py-10 shadow-[0_30px_120px_rgba(0,0,0,0.5)] md:px-10 md:py-14 xl:px-14 xl:py-16">
-          <div className="pointer-events-none absolute inset-0 opacity-[0.42]">
-            <img
-              src="/worthscout_hero_radar_bg.svg"
-              alt=""
-              aria-hidden="true"
-              className="h-full w-full object-cover object-left"
-            />
+        {/* ── Hero ── */}
+        <section className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.12),transparent_24%),radial-gradient(circle_at_top_right,rgba(244,114,182,0.12),transparent_28%),linear-gradient(135deg,#0c1118_0%,#05030a_55%,#12081a_100%)] px-5 py-10 shadow-[0_30px_120px_rgba(0,0,0,0.5)] md:px-10 md:py-14 xl:px-14 xl:py-16">
+          <div className="pointer-events-none absolute inset-0 opacity-[0.62]">
+            <img src="/worthscout_hero_radar_bg.svg" alt="" aria-hidden="true" className="h-full w-full object-cover object-left" />
           </div>
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:52px_52px] opacity-[0.05]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,3,10,0.10)_0%,rgba(5,3,10,0.04)_36%,rgba(5,3,10,0.18)_62%,rgba(5,3,10,0.38)_100%)]" />
 
-          <div className="relative grid gap-12 xl:grid-cols-[0.92fr_1.08fr] xl:items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+          <div className="relative grid gap-12 xl:grid-cols-[1.02fr_0.98fr] xl:items-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
               <Badge className="mb-5 rounded-full border-emerald-400/20 bg-emerald-400/10 px-4 py-1.5 text-emerald-200 hover:bg-emerald-400/10">
+                <Zap className="mr-1.5 h-3 w-3" />
                 Barcode-first retail arbitrage
               </Badge>
-
-              <h1 className="max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-white md:text-6xl xl:text-7xl">
+              <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-white md:text-6xl xl:text-7xl">
                 Scan. Price. Decide.{" "}
-                <span className="text-emerald-300">Before</span> you waste money on bad stock.
+                <span className="text-emerald-300">Before</span>{" "}
+                you waste money on bad stock.
               </h1>
-
-              <p className="mt-6 max-w-2xl text-base leading-7 text-white/68 md:text-lg">
-                Built for thrift stores, outlet hunts, and desktop sourcing.
-                WorthScout helps you scan items, estimate resale margin, and avoid weak
-                buys before you spend.
+              <p className="mt-6 max-w-2xl text-base leading-7 text-white/65 md:text-lg">
+                Built for TK Maxx runs, thrift stores, outlet hunts, and desktop deal scouting. Scan a barcode, snap a garment, or work from a shared opportunity board with editable fees and live margin math.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button
-                  onClick={onEnterApp}
-                  className="rounded-[1.1rem] bg-emerald-400 px-6 text-slate-950 hover:bg-emerald-300 shadow-[0_18px_45px_rgba(52,211,153,0.18)]"
-                >
+                <Button onClick={onEnterApp} className="h-12 rounded-[1.1rem] bg-emerald-400 px-7 text-slate-950 hover:bg-emerald-300 active:scale-[0.98] transition-all shadow-[0_12px_35px_rgba(52,211,153,0.22)]">
                   Start scanning
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-
-                <Button
-                  variant="outline"
-                  onClick={onSignIn}
-                  className="rounded-[1.1rem] border-white/10 bg-white/5 text-white hover:bg-white/10"
-                >
+                <Button variant="outline" onClick={() => openAuth("register")} className={cn(btnSecondary, "h-12 px-6")}>
+                  <UserPlus className="mr-2 h-4 w-4" />
                   Create free account
                 </Button>
               </div>
 
+              {/* Ticker */}
               <div className="mt-8 overflow-hidden rounded-[1.2rem] border border-white/10 bg-black/25 backdrop-blur-xl">
-                <motion.div
-                  key={tickerIndex}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-3 px-4 py-3 text-sm text-white/70"
-                >
-                  <div className="h-2 w-2 rounded-full bg-emerald-300" />
-                  <span>{tickerItems[tickerIndex]}</span>
-                </motion.div>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={tickerIndex}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex items-center gap-3 px-4 py-3 text-sm text-white/65"
+                  >
+                    <div className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    <span>{tickerItems[tickerIndex]}</span>
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-4">
-                {[
-                  ["Barcode-first", "Fast store triage"],
-                  ["Editable fees", "Profit math that fits"],
-                  ["Demand-aware", "Avoid dead stock"],
-                  ["Shared board", "Surface likely wins"],
-                ].map(([value, label], idx) => (
+              {/* Stat pills */}
+              <div className="mt-6 grid gap-3 sm:grid-cols-4">
+                {[["Barcode-first", "store triage"], ["Editable fees", "profit model"], ["Demand-aware", "dead stock filter"], ["Shared board", "hourly refreshed"]].map(([value, label], idx) => (
                   <motion.div
                     key={label}
-                    initial={{ opacity: 0, y: 18 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, delay: 0.1 + idx * 0.05 }}
-                    className="rounded-[1.3rem] border border-white/10 bg-white/5 p-4 backdrop-blur-xl"
+                    transition={{ duration: 0.35, delay: 0.1 + idx * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                    className="rounded-[1.2rem] border border-white/10 bg-white/5 p-4 backdrop-blur-xl"
                   >
-                    <div className="text-base font-semibold text-white">{value}</div>
-                    <div className="mt-1 text-sm text-white/48">{label}</div>
+                    <div className="text-sm font-semibold text-white">{value}</div>
+                    <div className="mt-0.5 text-xs text-white/45">{label}</div>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
 
+            {/* Hero mockup card */}
             <motion.div
-              className="xl:flex xl:justify-center xl:pr-3"
-              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.55 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="relative mx-auto w-full max-w-[620px]"
             >
-              <HeroSnapshotPlaceholder />
+              <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] p-4 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+                <div className="mb-4 grid gap-3 sm:grid-cols-3">
+                  {[["Net profit", "+£21.40", "border-emerald-400/20 bg-emerald-400/10 text-emerald-300"], ["Demand", "High", "border-fuchsia-400/20 bg-fuchsia-400/10 text-fuchsia-300"], ["Confidence", "92%", "border-sky-400/20 bg-sky-400/10 text-sky-300"]].map(([label, value, styles]) => (
+                    <div key={label as string} className={cn("rounded-[1.2rem] border p-4", styles as string)}>
+                      <div className="text-[10px] uppercase tracking-[0.18em] text-white/50">{label as string}</div>
+                      <div className="mt-2 text-2xl font-semibold">{value as string}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="rounded-[1.7rem] border border-white/10 bg-[#091018] p-4">
+                  <div className="mb-4 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs text-white/40">Scanner preview</div>
+                      <div className="mt-0.5 text-base font-semibold text-white">Retail arbitrage cockpit</div>
+                    </div>
+                    <Badge className="border-emerald-400/20 bg-emerald-400/10 text-emerald-200">Live concept</Badge>
+                  </div>
+                  <div className="grid gap-4 md:grid-cols-[0.8fr_1.2fr]">
+                    <div className="overflow-hidden rounded-[1.4rem] border border-white/10 bg-black/30">
+                      <img src={starterScans[0].image} alt="Preview" className="h-full min-h-[200px] w-full object-cover" />
+                    </div>
+                    <div className="space-y-3">
+                      <div className="rounded-[1.2rem] border border-white/10 bg-white/5 p-3">
+                        <div className="mb-2 flex items-center justify-between">
+                          <Badge className="border-sky-400/20 bg-sky-400/10 text-sky-200 text-[10px]">Barcode lookup</Badge>
+                          <span className="text-[10px] uppercase tracking-[0.15em] text-white/30">5012345…</span>
+                        </div>
+                        <div className="text-base font-semibold text-white">Reformation Linen Midi</div>
+                        <div className="mt-2 flex flex-wrap gap-1.5">
+                          <Badge variant="outline" className="border-white/10 text-white/60 text-[10px]">Linen</Badge>
+                          <Badge className="border-emerald-400/20 bg-emerald-400/10 text-emerald-200 text-[10px]">92% conf.</Badge>
+                        </div>
+                      </div>
+                      <div className="grid gap-2 sm:grid-cols-3">
+                        {[["Buy", "£22"], ["Fair", "£58"], ["Net", "+£21"]].map(([label, value]) => (
+                          <div key={label} className="rounded-[1rem] border border-white/10 bg-white/5 p-3">
+                            <div className="text-[10px] uppercase tracking-[0.18em] text-white/30">{label}</div>
+                            <div className="mt-1 text-lg font-semibold text-white">{value}</div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="rounded-[1.1rem] border border-white/10 bg-white/5 p-3">
+                        <div className="mb-2 flex items-center justify-between text-[11px] text-white/45">
+                          <span>Sell-through</span><span>High demand</span>
+                        </div>
+                        <Progress value={84} className="h-2 bg-white/10" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>
 
+        {/* ── Features ── */}
         <SectionReveal>
-          <section id="features" className="mt-16 scroll-mt-24">
-            <div className="mb-8 max-w-3xl">
+          <section id="features" className="mt-20 scroll-mt-8">
+            <div className="mb-10 max-w-3xl">
               <Badge className="mb-4 rounded-full border-fuchsia-400/20 bg-fuchsia-400/10 px-4 py-1.5 text-fuchsia-200 hover:bg-fuchsia-400/10">
                 Features
               </Badge>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white md:text-5xl">
                 Everything you need to flip smarter.{" "}
-                <span className="text-emerald-300">Nothing you don’t.</span>
+                <span className="text-emerald-300">Nothing you don't.</span>
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/60 md:text-lg">
-                Every part of WorthScout is built to reduce hesitation, cut bad buys,
-                and help you make stronger sourcing decisions faster.
+                Every feature should kill friction, reduce bad buys, or make users more money. No filler. No fake AI theatre.
               </p>
             </div>
-
             <div className="grid gap-4 lg:grid-cols-3">
-              {featureCards.map((feature, i) => {
+              {[
+                { icon: ScanLine, title: "Scan anything", text: "Point your camera at a clothing item, tag, or care label. Get comps, demand, and net profit in seconds.", accent: "text-emerald-300", bg: "from-emerald-500/[0.08]" },
+                { icon: Barcode, title: "Barcode scanner", text: "Perfect for TK Maxx and outlet runs. Fast triage before you waste time digging deeper.", accent: "text-sky-300", bg: "from-sky-500/[0.08]" },
+                { icon: SlidersHorizontal, title: "Editable fee engine", text: "Tweak buyer fee, shipping, seller fee, and marketplace percentage. Real net profit, not theoretical.", accent: "text-fuchsia-300", bg: "from-fuchsia-500/[0.08]" },
+                { icon: TrendingUp, title: "Demand meter", text: "STR matters. Know what moves, not just what looks expensive on the rack.", accent: "text-amber-300", bg: "from-amber-500/[0.08]" },
+                { icon: Gem, title: "Material intelligence", text: "Surface premium fabrics — linen, silk, leather, wool — when the evidence clearly supports it.", accent: "text-violet-300", bg: "from-violet-500/[0.08]" },
+                { icon: ImageIcon, title: "Desktop image drop", text: "Drag a listing screenshot into the scanner to analyse online opportunities without leaving your desk.", accent: "text-rose-300", bg: "from-rose-500/[0.08]" },
+              ].map((feature, i) => {
                 const Icon = feature.icon;
                 return (
                   <motion.div
@@ -1221,27 +1016,15 @@ function PublicHome({
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.35, delay: i * 0.05 }}
-                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.35, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                    whileHover={{ y: -6, transition: { duration: 0.2 } }}
                   >
-                    <div
-                      className={cn(
-                        shellPanel,
-                        "h-full p-6 transition hover:border-white/20 hover:bg-white/[0.08]"
-                      )}
-                    >
-                      <div
-                        className={cn(
-                          "mb-5 flex h-12 w-12 items-center justify-center rounded-[1rem] bg-white/10",
-                          feature.accent
-                        )}
-                      >
-                        <Icon className="h-5 w-5" />
+                    <div className={cn(shellPanel, "group h-full overflow-hidden p-6 transition-[border-color] hover:border-white/20")}>
+                      <div className={cn("mb-5 inline-flex h-11 w-11 items-center justify-center rounded-[1rem] bg-gradient-to-br to-transparent", feature.bg, "border border-white/[0.08]")}>
+                        <Icon className={cn("h-5 w-5", feature.accent)} />
                       </div>
-                      <div className="text-xl font-semibold tracking-tight text-white">
-                        {feature.title}
-                      </div>
-                      <p className="mt-3 text-sm leading-7 text-white/60">{feature.text}</p>
+                      <div className="text-lg font-semibold tracking-tight text-white">{feature.title}</div>
+                      <p className="mt-2.5 text-sm leading-7 text-white/55">{feature.text}</p>
                     </div>
                   </motion.div>
                 );
@@ -1250,173 +1033,93 @@ function PublicHome({
           </section>
         </SectionReveal>
 
-        <SectionReveal>
-          <section id="use-cases" className="mt-14 scroll-mt-24">
-            <div className="mb-8 max-w-3xl">
-              <Badge className="mb-4 rounded-full border-white/10 bg-white/5 px-4 py-1.5 text-white/70 hover:bg-white/5">
-                Use cases
-              </Badge>
-              <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white md:text-5xl">
-                Built for the way people actually source.
-              </h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-white/60 md:text-lg">
-                In-store, second-hand, or desktop-first. The workflow stays fast, clear,
-                and margin-led.
-              </p>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {useCases.map((item, idx) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: idx * 0.05 }}
-                  className={cn(shellPanel, "p-6")}
-                >
-                  <div className="text-lg font-semibold text-white">{item.title}</div>
-                  <p className="mt-3 text-sm leading-7 text-white/58">{item.text}</p>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-        </SectionReveal>
-
-        <SectionReveal>
-          <section
-            id="how-it-works"
-            className="mt-14 grid gap-4 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch scroll-mt-24"
-          >
-            <div className={cn(shellPanel, "p-8 text-white")}>
-              <Badge className="mb-4 rounded-full border-white/10 bg-white/5 px-4 py-1.5 text-white/70 hover:bg-white/5">
+        {/* ── How it works + Pricing ── */}
+        <SectionReveal delay={0.05}>
+          <section className="mt-20 grid gap-4 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+            {/* How it works */}
+            <div id="how-it-works" className={cn(shellPanel, "scroll-mt-8 p-8 text-white")}>
+              <Badge className="mb-5 rounded-full border-white/10 bg-white/5 px-4 py-1.5 text-white/65 hover:bg-white/5">
                 How it works
               </Badge>
-
-              <div className="space-y-4">
+              <h3 className="text-2xl font-semibold tracking-tight text-white">Four steps to a clean decision.</h3>
+              <p className="mt-2 text-sm leading-6 text-white/50">In-store or at home, the loop is the same.</p>
+              <div className="mt-6 space-y-3">
                 {[
-                  [
-                    MousePointerClick,
-                    "1. Scan or drop",
-                    "Use a barcode, snap a garment, or drag in a screenshot from desktop.",
-                  ],
-                  [
-                    Search,
-                    "2. Match market context",
-                    "See likely comps, demand signals, and whether the item is worth serious attention.",
-                  ],
-                  [
-                    SlidersHorizontal,
-                    "3. Tune your costs",
-                    "Adjust fees, shipping, and assumptions so the estimate reflects your real workflow.",
-                  ],
-                  [
-                    TrendingUp,
-                    "4. Decide fast",
-                    "Buy, skip, or save the result without losing momentum.",
-                  ],
+                  [MousePointerClick, "1. Scan or drop", "Use camera barcode, point at a garment, or drag a listing screenshot."],
+                  [Search, "2. Match comps", "Find probable market matches and current demand signals."],
+                  [SlidersHorizontal, "3. Tune profit", "Adjust fees and see real net profit update instantly."],
+                  [ArrowUpRight, "4. Decide fast", "Buy, skip, or save the item to your scan vault and move on."],
                 ].map(([Icon, title, text]) => (
                   <div key={title as string} className={cn(subtlePanel, "flex gap-4 p-4")}>
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[1rem] bg-white/10 text-emerald-200">
-                      <Icon className="h-5 w-5" />
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.9rem] bg-white/[0.08] text-emerald-200">
+                      <Icon className="h-4 w-4" />
                     </div>
                     <div>
-                      <div className="font-medium text-white">{title as string}</div>
-                      <div className="mt-1 text-sm leading-6 text-white/55">
-                        {text as string}
-                      </div>
+                      <div className="text-sm font-medium text-white">{title as string}</div>
+                      <div className="mt-0.5 text-xs leading-5 text-white/50">{text as string}</div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div id="pricing" className={cn(shellPanel, "p-8 text-white scroll-mt-24")}>
-              <Badge className="mb-4 rounded-full border-white/10 bg-white/5 px-4 py-1.5 text-white/70 hover:bg-white/5">
+            {/* Pricing */}
+            <div id="pricing" className={cn(shellPanel, "scroll-mt-8 p-8 text-white")}>
+              <Badge className="mb-5 rounded-full border-white/10 bg-white/5 px-4 py-1.5 text-white/65 hover:bg-white/5">
                 Pricing
               </Badge>
-
-              <h3 className="text-3xl font-semibold tracking-tight text-white">
-                Start free. Upgrade when it’s earning its place.
-              </h3>
-
-              <div className="mt-6 space-y-4">
+              <h3 className="text-2xl font-semibold tracking-tight text-white">Start free. Upgrade when you're actually using it.</h3>
+              <div className="mt-6 grid gap-3">
                 {[
-                  [
-                    "Free",
-                    "Start with the scanner, basic profit checks, and core history.",
-                    "£0",
-                  ],
-                  [
-                    "Hustler",
-                    "More scans, barcode priority, board alerts, and deeper demand tools.",
-                    "£9/mo",
-                  ],
-                  [
-                    "Pro",
-                    "Advanced analytics, stronger watchlists, and future marketplace modules.",
-                    "£19/mo",
-                  ],
-                ].map(([tier, text, price], idx) => (
-                  <div
-                    key={tier as string}
-                    className={cn(
-                      subtlePanel,
-                      "flex items-start justify-between gap-3 p-4",
-                      idx === 1 && "border-emerald-400/20 bg-emerald-400/[0.04]"
-                    )}
-                  >
-                    <div>
-                      <div className="font-medium text-white">{tier as string}</div>
-                      <div className="mt-1 text-sm leading-6 text-white/55">
-                        {text as string}
+                  { plan: "Free", price: "£0", desc: "Core scanner, scan vault, manual profit calculator", cta: false },
+                  { plan: "Hustler", price: "£9/mo", desc: "More scans, barcode priority, deeper demand tools, shared board alerts", cta: true, badge: "Most popular" },
+                  { plan: "Pro", price: "£19/mo", desc: "Advanced analytics, saved watchlists, future marketplace modules", cta: false },
+                ].map(({ plan, price, desc, cta, badge }) => (
+                  <div key={plan} className={cn(subtlePanel, "p-4 transition-[border-color]", cta && "border-emerald-400/20 bg-emerald-400/[0.04]")}>
+                    <div className="flex items-center justify-between gap-3">
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="font-semibold text-white">{plan}</span>
+                          {badge && <span className="rounded-full bg-emerald-400/15 px-2.5 py-0.5 text-[10px] uppercase tracking-[0.15em] text-emerald-200">{badge}</span>}
+                        </div>
+                        <div className="mt-1 text-xs leading-5 text-white/45">{desc}</div>
+                      </div>
+                      <div className="shrink-0 text-right">
+                        <div className="text-xl font-semibold text-white">{price}</div>
                       </div>
                     </div>
-                    <div className="shrink-0 text-lg font-semibold text-white">{price as string}</div>
                   </div>
                 ))}
               </div>
-
-              <Button
-                onClick={onEnterApp}
-                className="mt-6 rounded-[1rem] bg-white text-slate-950 hover:bg-white/90"
-              >
-                Try the concept
-              </Button>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <Button onClick={onEnterApp} className={cn(btnPrimary, "h-11 w-full")}>
+                  Try the concept
+                </Button>
+                <Button variant="outline" onClick={() => openAuth("register")} className={cn(btnSecondary, "h-11 w-full")}>
+                  Create free account
+                </Button>
+              </div>
             </div>
           </section>
         </SectionReveal>
 
-        <SectionReveal>
-          <section className="mt-14 grid gap-4 lg:grid-cols-3">
+        {/* ── Trust pillars ── */}
+        <SectionReveal delay={0.04}>
+          <section className="mt-8 grid gap-4 lg:grid-cols-3">
             {[
-              {
-                icon: Trophy,
-                title: "Built for decisive buying",
-                text: "This is not for admiring dashboards. It is for buying faster, skipping faster, and making cleaner calls.",
-              },
-              {
-                icon: Shield,
-                title: "Confidence without fake certainty",
-                text: "WorthScout shows confidence, demand, and margin signal without pretending every estimate is gospel.",
-              },
-              {
-                icon: Star,
-                title: "Modular from day one",
-                text: "Barcode, board, alerts, and future marketplace modules can grow without breaking the core product.",
-              },
+              { icon: Trophy, title: "Built for decisive buying", text: "Not pretty dashboards. Faster, cleaner decisions in the aisle — with margin math that doesn't require a spreadsheet.", accent: "text-amber-300" },
+              { icon: ShieldCheck, title: "Confidence without fake certainty", text: "Show confidence, demand, and material signals without pretending every estimate is gospel. Honest is better than impressive.", accent: "text-emerald-300" },
+              { icon: Layers3, title: "Modular by design", text: "Barcode, bundles, listing tools, and a dedicated Vinted scanner can all slot in without breaking the core product.", accent: "text-fuchsia-300" },
             ].map((item) => {
               const Icon = item.icon;
               return (
-                <motion.div key={item.title} whileHover={{ y: -6 }}>
-                  <div className={cn(shellPanel, "p-6 text-white")}>
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[1rem] bg-white/10 text-fuchsia-200">
-                      <Icon className="h-5 w-5" />
+                <motion.div key={item.title} whileHover={{ y: -5, transition: { duration: 0.2 } }}>
+                  <div className={cn(shellPanel, "h-full p-6 text-white")}>
+                    <div className={cn("mb-4 flex h-10 w-10 items-center justify-center rounded-[0.9rem] bg-white/[0.08]", item.accent)}>
+                      <Icon className="h-4 w-4" />
                     </div>
-                    <div className="text-2xl font-semibold tracking-tight text-white">
-                      {item.title}
-                    </div>
-                    <p className="mt-3 text-sm leading-7 text-white/60">{item.text}</p>
+                    <div className="text-lg font-semibold tracking-tight text-white">{item.title}</div>
+                    <p className="mt-2.5 text-sm leading-7 text-white/55">{item.text}</p>
                   </div>
                 </motion.div>
               );
@@ -1424,48 +1127,35 @@ function PublicHome({
           </section>
         </SectionReveal>
 
-        <SectionReveal>
-          <section id="faq" className="mt-14 scroll-mt-24">
-            <div className="mb-8 max-w-3xl">
-              <Badge className="mb-4 rounded-full border-sky-400/20 bg-sky-400/10 px-4 py-1.5 text-sky-200 hover:bg-sky-400/10">
-                FAQ
-              </Badge>
-              <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white md:text-5xl">
-                Answers to the obvious questions.
-              </h2>
+        {/* ── FAQ ── */}
+        <SectionReveal delay={0.04}>
+          <section id="faq" className="mt-20 scroll-mt-8">
+            <div className="mb-10 max-w-3xl">
+              <Badge className="mb-4 rounded-full border-sky-400/20 bg-sky-400/10 px-4 py-1.5 text-sky-200 hover:bg-sky-400/10">FAQ</Badge>
+              <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white md:text-5xl">Answers to the obvious questions.</h2>
             </div>
-
             <div className="grid gap-4 lg:grid-cols-2">
               {[
-                [
-                  "Does it only work for clothing?",
-                  "Clothing is the strongest current use case, but the scanner is designed to expand into other resale-friendly categories over time.",
-                ],
-                [
-                  "Is the opportunity board live?",
-                  "It refreshes hourly to keep the board useful without turning server cost into a joke.",
-                ],
-                [
-                  "Can I change fees and assumptions?",
-                  "Yes. Margin estimates should fit your workflow, not some fake generic reseller profile.",
-                ],
-                [
-                  "Will there be a Vinted-specific workflow?",
-                  "Yes, as a separate module later. The core product stays focused on scanner speed and decision quality first.",
-                ],
+                ["Does it only work for clothing?", "No. Clothing is the strongest current use case, but the scanner is designed to expand across sellable categories over time."],
+                ["Is the opportunity board live?", "It refreshes hourly so server load stays sensible while still surfacing strong candidates regularly throughout the day."],
+                ["Can I change fees and assumptions?", "Yes. Editable fees are a core part of the product because fixed-profit assumptions are useless in the real world."],
+                ["Will there be a Vinted-specific scanner?", "Yes, as a separate module later. The main product stays focused on barcode, product recognition, and smarter sourcing first."],
+                ["Is the AI confident enough to trust?", "We show confidence scores, demand meters, and comp counts — so you can calibrate the estimate yourself, not blindly trust it."],
+                ["What does the Pro tier unlock?", "Advanced analytics, full watchlist management, deeper brand demand signals, and early access to upcoming marketplace modules."],
               ].map(([question, answer]) => (
-                <div key={question as string} className={cn(shellPanel, "p-6 text-white")}>
-                  <div className="text-lg font-semibold text-white">{question as string}</div>
-                  <p className="mt-3 text-sm leading-7 text-white/60">{answer as string}</p>
+                <div key={question as string} className={cn(shellPanel, "p-6 transition-[border-color] hover:border-white/20")}>
+                  <div className="text-base font-semibold text-white">{question as string}</div>
+                  <p className="mt-2.5 text-sm leading-7 text-white/55">{answer as string}</p>
                 </div>
               ))}
             </div>
           </section>
         </SectionReveal>
 
-        <SectionReveal>
-          <section className="mt-14">
-            <div className="relative overflow-hidden rounded-[2.2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.14),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(244,114,182,0.10),transparent_30%),linear-gradient(135deg,#0a0f16,#07040b)] p-10 text-center shadow-[0_20px_80px_rgba(0,0,0,0.4)] md:p-16">
+        {/* ── CTA footer ── */}
+        <SectionReveal delay={0.04}>
+          <section className="mt-20">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.14),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(244,114,182,0.10),transparent_30%),linear-gradient(135deg,#0a0f16,#07040b)] p-10 text-center shadow-[0_20px_80px_rgba(0,0,0,0.4)] md:p-16">
               <Badge className="mb-5 rounded-full border-emerald-400/20 bg-emerald-400/10 px-4 py-1.5 text-emerald-200 hover:bg-emerald-400/10">
                 Ready to scout
               </Badge>
@@ -1473,25 +1163,18 @@ function PublicHome({
                 Stop guessing. Start scanning.
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-white/60">
-                WorthScout helps you price faster, cut weak buys earlier, and source with
-                a margin-first mindset from the very first scan.
+                WorthScout gives you real margin math before you spend a penny. Free to start, useful from the first scan.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <Button
-                  onClick={onEnterApp}
-                  className="rounded-[1.1rem] bg-emerald-400 px-8 text-slate-950 hover:bg-emerald-300 shadow-[0_18px_45px_rgba(52,211,153,0.18)]"
-                >
+                <Button onClick={onEnterApp} className="h-12 rounded-[1.1rem] bg-emerald-400 px-8 text-slate-950 hover:bg-emerald-300 active:scale-[0.98] transition-all shadow-[0_12px_35px_rgba(52,211,153,0.22)]">
                   Open the scanner
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button
-                  variant="outline"
-                  onClick={onSignIn}
-                  className="rounded-[1.1rem] border-white/10 bg-white/5 text-white hover:bg-white/10"
-                >
-                  Create free account
+                <Button variant="outline" onClick={() => openAuth("register")} className={cn(btnSecondary, "h-12 px-8")}>
+                  Sign up free
                 </Button>
               </div>
+              <p className="mt-5 text-xs text-white/30">No credit card required · Free plan available</p>
             </div>
           </section>
         </SectionReveal>
@@ -1499,6 +1182,7 @@ function PublicHome({
     </div>
   );
 }
+
 // ─── Sidebar ──────────────────────────────────────────────────────────────────
 function Sidebar({
   currentView,
@@ -2918,7 +2602,7 @@ function DemandView({ scans }: any) {
       {}
     );
 
-    const entries = Object.entries(grouped).map(([name, stats]) => ({
+    const entries = Object.entries(grouped as Record<string, { total: number; count: number }>).map(([name, stats]) => ({
       name,
       avg: Math.round(stats.total / Math.max(stats.count, 1)),
     }));
@@ -4273,4 +3957,3 @@ export default function WorthScoutApp() {
     </div>
   );
 }
-

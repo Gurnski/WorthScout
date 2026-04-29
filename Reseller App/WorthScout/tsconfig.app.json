@@ -8,7 +8,7 @@
     "skipLibCheck": true,
 
     "baseUrl": ".",
-    "ignoreDepcreations": "6.0",
+    "ignoreDepcrecations": "6.0",
     "paths": {
       "@/*": ["./src/*"]
     },
